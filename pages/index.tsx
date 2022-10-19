@@ -1,7 +1,22 @@
-import type { NextPage } from 'next'
-import Head from 'next/head'
-import Image from 'next/image'
-import styles from '../styles/Home.module.css'
+import type { NextPage } from 'next';
+import dynamic from 'next/dynamic';
+import Head from 'next/head';
+import Image from 'next/image';
+import styles from '../styles/Home.module.css';
+
+// import TestComponent from '../components/common/TestComponent/TestComponent';
+// import AnotherTest from '../components/common/AnotherTest/AnotherTest';
+// const TestComponent = dynamic(
+//   () => import('../components/common/TestComponent/TestComponent')
+// );
+// const AnotherTest = dynamic(
+//   () => import('../components/common/AnotherTest/AnotherTest')
+// );
+
+import One from '../components/modules/One/One';
+// import Two from '../components/modules/Two/Two';
+// const One = dynamic(() => import('../components/modules/One/One'));
+const Two = dynamic(() => import('../components/modules/Two/Two'));
 
 const Home: NextPage = () => {
   return (
@@ -13,7 +28,12 @@ const Home: NextPage = () => {
       </Head>
 
       <main className={styles.main}>
-        <h1 className={styles.title}>
+        {/* <TestComponent />
+        <AnotherTest /> */}
+        <One />
+        <Two />
+
+        {/* <h1 className={styles.title}>
           Welcome to <a href="https://nextjs.org">Next.js!</a>
         </h1>
 
@@ -50,7 +70,7 @@ const Home: NextPage = () => {
               Instantly deploy your Next.js site to a public URL with Vercel.
             </p>
           </a>
-        </div>
+        </div> */}
       </main>
 
       <footer className={styles.footer}>
@@ -66,7 +86,7 @@ const Home: NextPage = () => {
         </a>
       </footer>
     </div>
-  )
-}
+  );
+};
 
-export default Home
+export default Home;
